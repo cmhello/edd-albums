@@ -1,0 +1,39 @@
+$border-color: #ccc;
+
+.edd-download {
+	.playlist.edd_download_purchase_form .edd_price_options {
+		li {
+			padding: 5px 10px;
+			overflow: hidden;
+			vertical-align: middle;
+			border-bottom: 1px solid $border-color;
+
+			input {
+				margin: 0;
+			}
+
+			label {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&:first-child {
+				border-top: 1px solid $border-color;
+			}
+		}
+
+		.mejs-container.wp-audio-shortcode {
+			width: 30px !important;
+			border-radius: 50%;
+			overflow: hidden;
+			float: right;
+			margin: 0;
+
+			.mejs-controls .mejs-play button,
+			.mejs-controls .mejs-button button {
+				margin: 7px;
+			}
+		}
+	}
+}
+

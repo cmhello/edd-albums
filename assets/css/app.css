@@ -1,0 +1,23 @@
+.edd-download .playlist.edd_download_purchase_form .edd_price_options li {
+  padding: 5px 10px;
+  overflow: hidden;
+  vertical-align: middle;
+  border-bottom: 1px solid #ccc; }
+  .edd-download .playlist.edd_download_purchase_form .edd_price_options li input {
+    margin: 0; }
+  .edd-download .playlist.edd_download_purchase_form .edd_price_options li label {
+    display: inline-block;
+    vertical-align: middle; }
+  .edd-download .playlist.edd_download_purchase_form .edd_price_options li:first-child {
+    border-top: 1px solid #ccc; }
+.edd-download .playlist.edd_download_purchase_form .edd_price_options .mejs-container.wp-audio-shortcode {
+  width: 30px !important;
+  border-radius: 50%;
+  overflow: hidden;
+  float: right;
+  margin: 0; }
+  .edd-download .playlist.edd_download_purchase_form .edd_price_options .mejs-container.wp-audio-shortcode .mejs-controls .mejs-play button,
+  .edd-download .playlist.edd_download_purchase_form .edd_price_options .mejs-container.wp-audio-shortcode .mejs-controls .mejs-button button {
+    margin: 7px; }
+
+/*# sourceMappingURL=app.css.map */
