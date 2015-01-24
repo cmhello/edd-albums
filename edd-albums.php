@@ -11,12 +11,26 @@
  */
 
 class EDD_Albums {
-	
+
+	private static $instance;
+
 	private $plugin_url;
 	private $plugin_dir;
 	private $suffix;
 	
+	public static function instance() {
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof EDD_Albums ) ) {
+			self::$instance = new EDD_Albums;
+		}
+
+		return self::$instance;
+	}
+	
 	public function __construct() {
+		if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
+			return;
+		}
+
 		$this->plugin_url = plugin_dir_url( __FILE__ );
 		$this->plugin_dir = plugin_dir_path( __FILE__ );
 
@@ -32,6 +46,15 @@ class EDD_Albums {
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		add_filter( 'edd_purchase_download_form', array( $this, 'edd_purchase_download_form' ), 10, 2 );
+
+		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+	}
+	
+	public function load_plugin_textdomain() {
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'edd-albums' );
+
+		load_textdomain( 'edd-albums', WP_LANG_DIR . "/edd-albums/edd-albums-$locale.mo" );
+		load_plugin_textdomain( 'edd-albums', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	public function edd_purchase_download_form( $form, $args ) {
@@ -93,4 +116,7 @@ class EDD_Albums {
 	}
 }
 
-new EDD_Albums;
+function edd_albums() {
+	return EDD_Albums::instance();
+}
+add_action( 'plugins_loaded', 'edd_albums', 5 );
