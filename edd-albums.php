@@ -1,6 +1,13 @@
 <?php
 /**
  * Plugin Name: Easy Digital Downloads - Albums
+ * Plugin URI: http://easydigitaldownloads.com/extensions/albums
+ * Description: Output a preview button for audio files in Easy Digital Downloads
+ * Author: Spencer Finnell
+ * Author URI: http://github.com/spencerfinnell
+ * Version: 1.0.0
+ * Text Domain: edd-albums
+ * Domain Path: languages
  */
 
 class EDD_Albums {

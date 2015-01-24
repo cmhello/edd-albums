@@ -1,0 +1,45 @@
+# Copyright (C) 2015 Easy Digital Downloads - Albums
+# This file is distributed under the same license as the Easy Digital Downloads - Albums package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Digital Downloads - Albums 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/edd-albums\n"
+"POT-Creation-Date: 2015-01-24 16:42:32+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: edd-albums.php:56
+msgid "Choose an Audio File"
+msgstr ""
+
+#: edd-albums.php:57
+msgid "Use File"
+msgstr ""
+
+#: edd-albums.php:80
+msgid "Preview"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Easy Digital Downloads - Albums"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://easydigitaldownloads.com/extensions/albums"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Output a preview button for audio files in Easy Digital Downloads"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Spencer Finnell"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://github.com/spencerfinnell"
+msgstr ""
