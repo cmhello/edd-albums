@@ -21,21 +21,10 @@ class EDD_Playlists {
 		add_action( 'admin_enqueue_scripts', array( $this, 'edd_load_admin_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-		add_filter( 'shortcode_atts_purchase_link', array( $this, 'purchase_link' ), 10, 3 );
 		add_filter( 'edd_purchase_download_form', array( $this, 'edd_purchase_download_form' ), 10, 2 );
 	}
 
-	public function purchase_link( $out, $pairs, $atts ) {
-		$out = array_merge( $out, $atts );
-
-		return $out;
-	}
-
 	public function edd_purchase_download_form( $form, $args ) {
-		if ( ! isset( $args[ 'playlist' ] ) ) {
-			return $form;
-		}
-
 		$form = str_replace( 'class="edd_download_purchase_form ', 'class="edd_download_purchase_form playlist ', $form );
 
 		return $form;

@@ -20,18 +20,22 @@ $border-color: #ccc;
 			&:first-child {
 				border-top: 1px solid $border-color;
 			}
-		}
 
-		.mejs-container.wp-audio-shortcode {
-			width: 30px !important;
-			border-radius: 50%;
-			overflow: hidden;
-			float: right;
-			margin: 0;
+			.mejs-container.wp-audio-shortcode {
+				width: 30px !important;
+				border-radius: 50%;
+				overflow: hidden;
+				float: right;
+				margin: 0;
 
-			.mejs-controls .mejs-play button,
-			.mejs-controls .mejs-button button {
-				margin: 7px;
+				.mejs-controls {
+					background: none;
+				}
+
+				.mejs-controls .mejs-play button,
+				.mejs-controls .mejs-button button {
+					margin: 7px;
+				}
 			}
 		}
 	}
