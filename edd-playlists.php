@@ -7,10 +7,13 @@ class EDD_Playlists {
 	
 	private $plugin_url;
 	private $plugin_dir;
+	private $suffix;
 	
 	public function __construct() {
 		$this->plugin_url = plugin_dir_url( __FILE__ );
 		$this->plugin_dir = plugin_dir_path( __FILE__ );
+
+		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 		add_filter( 'edd_download_price_table_head', array( $this, 'edd_download_price_table_head' ) );
 		add_action( 'edd_download_price_table_row', array( $this, 'edd_download_price_table_row' ), 10, 3 );
@@ -31,7 +34,7 @@ class EDD_Playlists {
 	}
 
 	public function wp_enqueue_scripts() {
-		wp_enqueue_style( 'edd-playlists', $this->plugin_url . 'assets/css/app.css' );
+		wp_enqueue_style( 'edd-playlists', $this->plugin_url . 'assets/css/app' . $this->suffix . '.css' );
 	}
 
 	public function edd_load_admin_scripts( $hook ) {
@@ -39,7 +42,7 @@ class EDD_Playlists {
 			return;
 		}
 
-		wp_enqueue_script( 'edd-playlists', $this->plugin_url . 'assets/js/app.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'edd-playlists', $this->plugin_url . 'assets/js/app' . $this->suffix . '.js', array( 'jquery' ) );
 
 		$localize = array(
 			'i18n' => array(

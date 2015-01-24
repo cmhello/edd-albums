@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 					'Gruntfile.js',
 					'assets/js/*.coffee',
 				],
-				tasks: [ 'coffee', 'uglify' ]
+				tasks: [ 'coffee' ]
 			},
 			css: {
 				files: [
@@ -56,6 +56,16 @@ module.exports = function(grunt) {
 					]
 				}
 			}
+		},
+
+		cssmin: {
+			dist: {
+				files: {
+					'assets/css/app.min.css': [
+						'assets/css/app.css'
+					]
+				}
+			}
 		}
 
 	});
@@ -64,8 +74,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-coffee' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 
 	grunt.registerTask('default', ['watch']);
 
-	grunt.registerTask('build', ['uglify', 'coffee', 'sass']);
+	grunt.registerTask('build', ['uglify', 'coffee', 'sass', 'cssmin']);
 };
