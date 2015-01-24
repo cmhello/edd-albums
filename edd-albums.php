@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Easy Digital Downloads - Playlists
+ * Plugin Name: Easy Digital Downloads - Albums
  */
 
-class EDD_Playlists {
+class EDD_Albums {
 	
 	private $plugin_url;
 	private $plugin_dir;
@@ -34,7 +34,7 @@ class EDD_Playlists {
 	}
 
 	public function wp_enqueue_scripts() {
-		wp_enqueue_style( 'edd-playlists', $this->plugin_url . 'assets/css/app' . $this->suffix . '.css' );
+		wp_enqueue_style( 'edd-albums', $this->plugin_url . 'assets/css/app' . $this->suffix . '.css' );
 	}
 
 	public function edd_load_admin_scripts( $hook ) {
@@ -42,16 +42,16 @@ class EDD_Playlists {
 			return;
 		}
 
-		wp_enqueue_script( 'edd-playlists', $this->plugin_url . 'assets/js/app' . $this->suffix . '.js', array( 'jquery' ) );
+		wp_enqueue_script( 'edd-albums', $this->plugin_url . 'assets/js/app' . $this->suffix . '.js', array( 'jquery' ) );
 
 		$localize = array(
 			'i18n' => array(
-				'title' => __( 'Choose an Audio File', 'edd-playlists' ),
-				'button' => __( 'Use File', 'edd-playlists' )
+				'title' => __( 'Choose an Audio File', 'edd-albums' ),
+				'button' => __( 'Use File', 'edd-albums' )
 			)
 		);
 
-		wp_localize_script( 'edd-playlists', 'EDDPlaylists', $localize );
+		wp_localize_script( 'edd-albums', 'EDDPlaylists', $localize );
 	}
 
 	public function edd_download_price_table_row( $post_id, $key, $args ) {
@@ -70,7 +70,7 @@ class EDD_Playlists {
 	}
 
 	public function edd_download_price_table_head( $post_id ) {
-		echo '<th width="55">' . __( 'Preview', 'edd-playlists' ) . '</th>';
+		echo '<th width="55">' . __( 'Preview', 'edd-albums' ) . '</th>';
 	}
 
 	public function edd_after_price_option( $key, $price, $download_id ) {
@@ -86,4 +86,4 @@ class EDD_Playlists {
 	}
 }
 
-new EDD_Playlists;
+new EDD_Albums;
