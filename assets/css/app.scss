@@ -41,3 +41,9 @@ $border-color: #ccc;
 	}
 }
 
+/** marketify */
+.theme-marketify {
+	.edd-download .playlist.edd_download_purchase_form .edd_price_options li:first-child {
+		border-top: 0;
+	}
+}
