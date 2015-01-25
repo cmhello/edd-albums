@@ -66,7 +66,15 @@ module.exports = function(grunt) {
 					]
 				}
 			}
-		}
+		},
+
+		makepot: {
+			theme: {
+				options: {
+					type: 'wp-plugin'
+				}
+			}
+		},
 
 	});
 
@@ -75,8 +83,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
+	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
 	grunt.registerTask('default', ['watch']);
 
-	grunt.registerTask('build', ['uglify', 'coffee', 'sass', 'cssmin']);
+	grunt.registerTask('build', ['uglify', 'coffee', 'sass', 'cssmin', 'makepot']);
 };
