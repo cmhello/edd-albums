@@ -2,13 +2,21 @@
 /**
  * Plugin Name: Easy Digital Downloads - Albums
  * Plugin URI: http://easydigitaldownloads.com/extensions/albums
- * Description: Output a preview button for audio files in Easy Digital Downloads
+ * Description: Output a preview button for audio files in Easy Digital Downloads.
  * Author: Spencer Finnell
  * Author URI: http://github.com/spencerfinnell
  * Version: 1.0.0
  * Text Domain: edd-albums
  * Domain Path: languages
  */
+
+if( ! class_exists( 'EDD_License' ) ) {
+	include( dirname( __FILE__ ) . '/license/EDD_License_Handler.php' );
+}
+
+if( class_exists( 'EDD_License' ) )
+    $license = new EDD_License( __FILE__, 'Easy Digital Downloads - Albums', '1.0.0', 'Spencer Finnell' );
+}
 
 class EDD_Albums {
 
