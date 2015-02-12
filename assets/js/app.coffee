@@ -13,9 +13,9 @@ jQuery ($) ->
         e.preventDefault()
         
         @bindFrame e.target
+        @frame.open()
 
       $( '#edd_price_fields' ).on 'change', '.edd_repeatable_default_input', (e) =>
-        console.log 'clicked'
         @toggleActions()
 
       $( 'body' ).on 'click', '.submit .edd_add_repeatable', (e) =>
@@ -24,15 +24,14 @@ jQuery ($) ->
     toggleActions: =>
       rows = $( '.edd_variable_prices_wrapper' )
 
-      console.log rows
-
       rows.each (i, el) =>
         radio = $( el ).find '.edd_repeatable_default_input'
 
         $( el ).find( @action ).toggle( ! radio.is( ':checked' ) )
 
     bindFrame: (el) =>
-      @frame.open()
+      @frame.on 'open', =>
+        @selectFile el
 
       @frame.on 'select', =>
         @attachFile el 
@@ -48,5 +47,15 @@ jQuery ($) ->
       attachment = @frame.state().get( 'selection' ).first().toJSON()
 
       $( el ).parent().next().val attachment.id
+
+    selectFile: (el) =>
+      selection = @frame.state().get 'selection'
+      id = $( el ).parent().next().val()
+
+      attachment = wp.media.attachment id
+      attachment.fetch()
+      
+      selection.add( if attachment then [attachment] else [] )
+
 
   new EDDPreview()

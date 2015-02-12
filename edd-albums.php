@@ -95,7 +95,7 @@ class EDD_Albums {
 	?>
 		<td class="edd-preview" style="text-align: center;">
 			<a href="#" class="edd-add-preview"><span class="dashicons dashicons-format-audio"></span></a>
-			<input type="hidden" name="edd_variable_prices[<?php echo $key; ?>][preview]" value="<?php echo isset( $args[ 'preview' ] ) ? esc_url( $args[ 'preview' ] ) : ''; ?>" class="edd_repeatable_index" />
+			<input type="hidden" name="edd_variable_prices[<?php echo $key; ?>][preview]" value="<?php echo isset( $args[ 'preview' ] ) ? $args[ 'preview' ] : ''; ?>" class="edd_repeatable_index" />
 		</td>
 	<?php
 	}

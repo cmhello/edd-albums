@@ -5,6 +5,7 @@
     var EDDPreview;
     EDDPreview = (function() {
       function EDDPreview() {
+        this.selectFile = __bind(this.selectFile, this);
         this.attachFile = __bind(this.attachFile, this);
         this.createFrame = __bind(this.createFrame, this);
         this.bindFrame = __bind(this.bindFrame, this);
@@ -21,12 +22,12 @@
         $('#edd_variable_price_fields').on('click', this.action, (function(_this) {
           return function(e) {
             e.preventDefault();
-            return _this.bindFrame(e.target);
+            _this.bindFrame(e.target);
+            return _this.frame.open();
           };
         })(this));
         $('#edd_price_fields').on('change', '.edd_repeatable_default_input', (function(_this) {
           return function(e) {
-            console.log('clicked');
             return _this.toggleActions();
           };
         })(this));
@@ -40,7 +41,6 @@
       EDDPreview.prototype.toggleActions = function() {
         var rows;
         rows = $('.edd_variable_prices_wrapper');
-        console.log(rows);
         return rows.each((function(_this) {
           return function(i, el) {
             var radio;
@@ -51,7 +51,11 @@
       };
 
       EDDPreview.prototype.bindFrame = function(el) {
-        this.frame.open();
+        this.frame.on('open', (function(_this) {
+          return function() {
+            return _this.selectFile(el);
+          };
+        })(this));
         return this.frame.on('select', (function(_this) {
           return function() {
             return _this.attachFile(el);
@@ -73,6 +77,15 @@
         var attachment;
         attachment = this.frame.state().get('selection').first().toJSON();
         return $(el).parent().next().val(attachment.id);
+      };
+
+      EDDPreview.prototype.selectFile = function(el) {
+        var attachment, id, selection;
+        selection = this.frame.state().get('selection');
+        id = $(el).parent().next().val();
+        attachment = wp.media.attachment(id);
+        attachment.fetch();
+        return selection.add(attachment ? [attachment] : []);
       };
 
       return EDDPreview;
