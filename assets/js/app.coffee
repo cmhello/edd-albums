@@ -14,11 +14,17 @@ jQuery ($) ->
         
         @bindFrame e.target
 
-      $( '.edd_repeatable_default_wrapper' ).on 'change', (e) =>
+      $( '#edd_price_fields' ).on 'change', '.edd_repeatable_default_input', (e) =>
+        console.log 'clicked'
+        @toggleActions()
+
+      $( 'body' ).on 'click', '.submit .edd_add_repeatable', (e) =>
         @toggleActions()
 
     toggleActions: =>
       rows = $( '.edd_variable_prices_wrapper' )
+
+      console.log rows
 
       rows.each (i, el) =>
         radio = $( el ).find '.edd_repeatable_default_input'

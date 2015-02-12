@@ -24,7 +24,13 @@
             return _this.bindFrame(e.target);
           };
         })(this));
-        return $('.edd_repeatable_default_wrapper').on('change', (function(_this) {
+        $('#edd_price_fields').on('change', '.edd_repeatable_default_input', (function(_this) {
+          return function(e) {
+            console.log('clicked');
+            return _this.toggleActions();
+          };
+        })(this));
+        return $('body').on('click', '.submit .edd_add_repeatable', (function(_this) {
           return function(e) {
             return _this.toggleActions();
           };
@@ -34,6 +40,7 @@
       EDDPreview.prototype.toggleActions = function() {
         var rows;
         rows = $('.edd_variable_prices_wrapper');
+        console.log(rows);
         return rows.each((function(_this) {
           return function(i, el) {
             var radio;

@@ -79,7 +79,7 @@ class EDD_Albums {
 			return;
 		}
 
-		wp_enqueue_script( 'edd-albums', $this->plugin_url . 'assets/js/app' . $this->suffix . '.js', array( 'jquery' ) );
+		wp_enqueue_script( 'edd-albums', $this->plugin_url . 'assets/js/app' . $this->suffix . '.js', array( 'jquery', 'edd-admin-scripts' ) );
 
 		$localize = array(
 			'i18n' => array(
@@ -125,7 +125,7 @@ class EDD_Albums {
 	}
 
 	public function edd_after_price_option( $key, $price, $download_id ) {
-		if ( '' == $price[ 'preview' ] ) {
+		if ( ! isset( $price[ 'preview' ] ) || '' == $price[ 'preview' ] ) {
 			return;
 		}
 
